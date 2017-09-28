@@ -41,7 +41,20 @@ mainModule.controller('storyCtrl', ['$scope', '$http', function($scope, $http) {
             ]
         }
     ];
-    $scope.redraw = function() {
-        alert($('#111').val());
+    $scope.leftForStory = [];
+
+
+    init();
+
+    function redraw (index, levelSize) {
+        return {left : levelSize * 2 - index};
+    }
+
+    function init(){
+        for (var i=0;i<$scope.levels; i++){
+            var lvl = $scope.levels[i];
+            redraw(i, lvl.stories.length);
+        }
+
     }
 }]);

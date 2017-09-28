@@ -11,14 +11,15 @@
 <body>
     <div ng-controller="storyCtrl">
         <div ng-repeat="level in levels" ng-attr-id="{{ 'level-' + level.id }}" class="level">
+            <!--{{arrr[$index]}}-->
             <span>{{level.id}}</span>
             <div class="content">
-                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story">
-                    <!--ng-init="redraw()"-->
+                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story" ng-style="leftForStory[story.id]">
                     <span>{{story.name}}</span>
                 </div>
             </div>
         </div>
+        <!--ng-init="redraw()"-->
     </div>
 </body>
 </html>
