@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+<body>
+    <div ng-controller="storyCtrl">
+        <div ng-repeat="level in levels" ng-attr-id="{{ 'level-' + level.id }}" class="level">
+            <span>{{level.id}}</span>
+            <div class="content">
+                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story">
+                    <!--ng-init="redraw()"-->
+                    <span>{{story.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    <!--<div ng-controller="testCtrl">-->
+
+        <!--{{1+2 == 3 }}-->
+
+        <!--<input ng-model="name">-->
+
+        <!--{{boobs}}-->
+        <!--<input ng-model="boobs" ng-show="name == 'test'">-->
+
+        <!--<input type="button" ng-click="newName($event)">-->
+
+        <!--<ul>-->
+            <!--<li ng-repeat="phone in phones">-->
+                <!--<span>{{phone.name}}: {{phone.number}}</span>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->

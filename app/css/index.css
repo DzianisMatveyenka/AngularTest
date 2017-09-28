@@ -1,0 +1,24 @@
+.level {
+    border: 1px solid #303aff;
+    min-height: 500px;
+    align-items: center;
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    position: relative;
+}
+
+.story {
+    background: #ff5b58;
+    width: 260px;
+    height: 380px;
+    padding: 5px;
+    border: 2px solid #191dff;
+    position: relative;
+}
+
+.content {
+    margin: auto;
+    width: 500px;
+    border: 1px solid #ff5b58;
+}
