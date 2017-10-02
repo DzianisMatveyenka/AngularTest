@@ -1,5 +1,5 @@
 var mainModule = angular.module('main', []);
-mainModule.controller('storyCtrl', ['$scope', '$http', function($scope, $http) {
+mainModule.controller('storyCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.levels = [
         {
             id: 1,
@@ -41,19 +41,22 @@ mainModule.controller('storyCtrl', ['$scope', '$http', function($scope, $http) {
             ]
         }
     ];
-    $scope.leftForStory = [];
-
+    $scope.positionForStory = [];
 
     init();
 
-    function redraw (index, levelSize) {
-        return {left : levelSize * 2 - index};
-    }
-
-    function init(){
-        for (var i=0;i<$scope.levels; i++){
-            var lvl = $scope.levels[i];
-            redraw(i, lvl.stories.length);
+    function init() {
+        for (var i = 0; i < $scope.levels.length; i++) {
+            var level = $scope.levels [ i ];
+            for (var j = 0; j < level.stories.length; j++) {
+                var story = level.stories [ j ];
+                if (j > 0) {
+                    $scope.positionForStory[ story.id ] = {
+                        left: (30 * j ) + 'px',
+                        top: (-j * 370 + (10 * j)) + 'px'
+                    };
+                }
+            }
         }
 
     }
