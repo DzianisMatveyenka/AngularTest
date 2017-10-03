@@ -11,12 +11,20 @@
 <body>
 <div ng-controller="storyCtrl">
     <div ng-repeat="level in levels" ng-attr-id="{{ 'level-' + level.id }}" class="level">
-        <!--{{arrr[$index]}}-->
-        <span>{{level.id}}</span>
-        <div class="content">
-            <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story"
-                 ng-style="positionForStory[story.id]">
-                <span>{{story.name}}</span>
+        <div class="content" ng-style="contentWidth[ $index ]">
+            <div class="stories" ng-style="storiesWidth[ $index ]">
+                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story"
+                     ng-style="positionForStory[story.id]">
+                    <span>{{story.name}}</span>
+                </div>
+            </div>
+            <div class="storyButtons">
+                <div class="storyButton">
+                    <input type="button" ng-show="true" ng-value="spreadButtonValue[level.id]" ng-click="spreadStories(level.id)"/>
+                </div>
+                <div class="storyButton">
+                    <input type="button" ng-show="isShowAddButton[level.id]" value=" + " ng-click="addStory(level.id)"/>
+                </div>
             </div>
         </div>
     </div>

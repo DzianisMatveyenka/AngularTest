@@ -1,11 +1,22 @@
 .level {
     border: 1px solid #303aff;
     min-height: 500px;
-    align-items: center;
-    display: flex;
+    max-height: 800px;
     padding: 5px;
     margin: 5px;
-    position: relative;
+}
+
+.content {
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ff5b58;
+}
+
+.stories {
+    float: left;
+    border: 1px solid #ffb852;
+    max-height: 500px;
 }
 
 .story {
@@ -13,12 +24,21 @@
     width: 260px;
     height: 380px;
     padding: 5px;
+    margin: 2px;
     border: 2px solid #191dff;
+    position: relative;
+    float: left;
+}
+
+.storyButtons {
+    height: auto;
+    margin: 2px;
+    width: 35px;
+    border: 1px solid #191dff;
+    float: right;
     position: relative;
 }
 
-.content {
-    margin: auto;
-    width: 500px;
-    border: 1px solid #ff5b58;
+.storyButton {
+    margin: 2px;
 }
