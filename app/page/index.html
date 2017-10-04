@@ -10,6 +10,14 @@
 </head>
 <body>
 <div ng-controller="storyCtrl">
+    <div id="overlay" ng-style="showCreateStoryDialog()"></div>
+    <div id="createStoryDialog" ng-style="showCreateStoryDialog()">
+        <div>
+            <p>Something</p>
+            <input type="button" value="OK"/>
+            <input type="button" value="Cancel" ng-click="cancelCreateStoryDialog()"/>
+        </div>
+    </div>
     <div ng-repeat="level in levels" ng-attr-id="{{ 'level-' + level.id }}" class="level">
         <div class="content" ng-style="contentWidth[ $index ]">
             <div class="stories" ng-style="storiesWidth[ $index ]">

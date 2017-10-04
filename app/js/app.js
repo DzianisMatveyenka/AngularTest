@@ -85,7 +85,7 @@ mainModule.controller('storyCtrl', ['$scope', '$http', function ($scope, $http) 
             }
         } else {
             $scope.spreadButtonValue[levelId] = '=>';
-            init();
+            initStoriesStyle(levelId);
 
             for (var i = 0; i < $scope.levels.length; i++) {
                 var level = $scope.levels[i];
@@ -99,13 +99,28 @@ mainModule.controller('storyCtrl', ['$scope', '$http', function ($scope, $http) 
         }
     };
 
-    $scope.addStory = function (levelId) {
+    $scope.showCreateStoryDialog = function() {
+        if ($scope.isShowCreateStory) {
+            return {
+                visibility: 'visible'
+            };
+        } else {
+            return {};
+        }
+    };
 
+    $scope.cancelCreateStoryDialog = function() {
+        $scope.isShowCreateStory = false;
+    };
+
+    $scope.addStory = function (levelId) {
+        $scope.isShowCreateStory = true;
     };
 
     init();
 
     function init() {
+        $scope.isShowCreateStory = false;
         $scope.positionForStory = [];
         $scope.contentWidth = [];
         $scope.storiesWidth = [];
@@ -115,23 +130,24 @@ mainModule.controller('storyCtrl', ['$scope', '$http', function ($scope, $http) 
         initStoriesStyle();
     }
 
-    function initStoriesStyle() {
-        for (var i = 0; i < $scope.levels.length; i++) {
-            var level = $scope.levels [i];
-            $scope.isShowAddButton[level.id] = true;
-            $scope.spreadButtonValue[level.id] = '=>';
-            for (var j = 0; j < level.stories.length; j++) {
-                var story = level.stories [j];
-                if (j > 0) {
-                    $scope.positionForStory[story.id] = {
-                        left: (30 * j ) + 'px',
-                        top: (-j * 370 + (10 * j)) + 'px',
-                        float: 'none'
-                    };
-                } else {
-                    $scope.positionForStory[story.id] = {
-                        float: 'none'
-                    };
+    function initStoriesStyle(levelId) {
+        for (var level of $scope.levels) {
+            if (levelId === undefined || level.id === levelId) {
+                $scope.isShowAddButton[level.id] = true;
+                $scope.spreadButtonValue[level.id] = '=>';
+                for (var j = 0; j < level.stories.length; j++) {
+                    var story = level.stories [j];
+                    if (j > 0) {
+                        $scope.positionForStory[story.id] = {
+                            left: (30 * j ) + 'px',
+                            top: (-j * 370 + (10 * j)) + 'px',
+                            float: 'none'
+                        };
+                    } else {
+                        $scope.positionForStory[story.id] = {
+                            float: 'none'
+                        };
+                    }
                 }
             }
         }
