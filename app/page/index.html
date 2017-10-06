@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/angular.min.js"></script>
+    <script src="../js/lib/jquery-3.2.1.min.js"></script>
+    <script src="../js/lib/angular.min.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/levelService.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 <body>
@@ -28,7 +29,7 @@
             </div>
             <div class="storyButtons">
                 <div class="storyButton">
-                    <input type="button" ng-show="true" ng-value="spreadButtonValue[level.id]" ng-click="spreadStories(level.id)"/>
+                    <input type="button" ng-show="true" ng-value="spreadButtonValue[level.id] ? '=>' : '<='" ng-click="spreadStories(level.id)"/>
                 </div>
                 <div class="storyButton">
                     <input type="button" ng-show="isShowAddButton[level.id]" value=" + " ng-click="addStory(level.id)"/>
