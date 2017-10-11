@@ -22,7 +22,7 @@
     <div ng-repeat="level in levels" ng-attr-id="{{ 'level-' + level.id }}" class="level">
         <div class="content" ng-style="contentWidth[ level.id ]">
             <div class="stories" ng-style="storiesWidth[ level.id ]">
-                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story"
+                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story shadow rounded"
                      ng-style="positionForStory[story.id]">
                     <span>{{story.name}}</span>
                 </div>
