@@ -8,9 +8,10 @@
     <script src="../js/app.js"></script>
     <script src="../js/levelService.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/test.css">
 </head>
 <body>
-<div ng-controller="storyCtrl">
+<div ng-controller="storyCtrl" class="pageBackground">
     <div id="overlay" ng-style="showCreateStoryDialog()"></div>
     <div id="createStoryDialog" ng-style="showCreateStoryDialog()">
         <div>
@@ -19,21 +20,77 @@
             <input type="button" value="Cancel" ng-click="cancelCreateStoryDialog()"/>
         </div>
     </div>
+    <div id="wrapper">
+        <!-- MENU START -->
+        <div id="navprev">
+            <ul class="nav">
+                <li class="first">
+                    <a href="#" id="icon" class="lighthome nav-item first">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">Item 2</a>
+                </li>
+                <li class="hover">
+                    <a href="#" class="nav-item">Hover</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">Item 4</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">Active</a></li>
+                <li class="hover">
+                    <a href="#" class="nav-item">Hover</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">Item 7</a>
+                </li>
+                <li class="search-nav last">
+                    <form action="#">
+                        <input type="text" class="search-input" placeholder="Search..."/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <!-- MENU END -->
+    </div>
     <div ng-repeat="level in levels" ng-attr-id="{{ 'level-' + level.id }}" class="level">
         <div class="content" ng-style="contentWidth[ level.id ]">
             <div class="stories" ng-style="storiesWidth[ level.id ]">
-                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}" class="story shadow rounded"
+                <div ng-repeat="story in level.stories" ng-attr-id="{{ 'story-' + story.id }}"
+                     class="story"
                      ng-style="positionForStory[story.id]">
-                    <img class="roundedPhoto" src="../image/poni.png">
-                    <span>{{story.name}}</span>
+                    <div class="storyHeaderBorder">
+                        <h5 class="storyHeader inlineElement">Header</h5>
+                        <div class="inlineElement">
+                            <a href="#" class="inlineElement storyDots">...</a>
+                        </div>
+                    </div>
+                    <div class="storyContentBorder">
+                        <span class="storyContent">{{story.name}}Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</span>
+                        <div class="storyButton">
+                            <input class="storyButtonPlus" type="button" ng-show="isShowAddButton[level.id]" value=" + "
+                                   ng-click="addStory(level.id)"/>
+                        </div>
+                    </div>
+                    <div class="storyFooter">
+                        <div class="storyButton storyButtonPadding inlineElement">
+                            <input class="storyButtonInputNext storyButtonNextLeft" type="button"/>
+                        </div>
+                        <div class="storyButtonPadding inlineElement">
+                            <input class="storyButtonInputNext storyButtonNextRight" type="button"/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="storyButtons">
                 <div class="storyButton">
-                    <input class="storyButtonInput" type="button" ng-show="true" ng-value="spreadButtonValue[level.id] ? '=>' : '<='" ng-click="spreadStories(level.id)"/>
+                    <input class="storyButtonInputNext storyButtonNext" type="button" ng-show="true"
+                           ng-style="rotate[ level.id ]"
+                           ng-value="spreadButtonValue[level.id] ? '' : ''" ng-click="spreadStories(level.id)"/>
                 </div>
                 <div class="storyButton">
-                    <input class="storyButtonInput" type="button" ng-show="isShowAddButton[level.id]" value=" + " ng-click="addStory(level.id)"/>
+                    <input class="storyButtonPlus" type="button" ng-show="isShowAddButton[level.id]" value=" + "
+                           ng-click="addStory(level.id)"/>
                 </div>
             </div>
         </div>

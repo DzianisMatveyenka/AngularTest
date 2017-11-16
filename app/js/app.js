@@ -13,6 +13,9 @@ mainModule.controller('storyCtrl', ['$scope', '$http', 'levelService', function 
             $scope.storiesWidth[level.id] = {
                 width: 'calc(100% - 45px)'
             };
+            $scope.rotate[levelId] = {
+                transform: 'rotate(180deg)'
+            };
             for (let story of level.stories) {
                 $scope.positionForStory[story.id] = {};
             }
@@ -22,6 +25,9 @@ mainModule.controller('storyCtrl', ['$scope', '$http', 'levelService', function 
 
             $scope.contentWidth[levelId] = {
                 width: '500px'
+            };
+            $scope.rotate[levelId] = {
+                transform: 'none'
             };
             $scope.storiesWidth[levelId] = {};
         }
@@ -51,6 +57,7 @@ mainModule.controller('storyCtrl', ['$scope', '$http', 'levelService', function 
         $scope.isShowCreateStory = false;
         $scope.positionForStory = [];
         $scope.contentWidth = [];
+        $scope.rotate = [];
         $scope.storiesWidth = [];
         $scope.isShowAddButton = [];
         $scope.spreadButtonValue = [];
@@ -67,8 +74,8 @@ mainModule.controller('storyCtrl', ['$scope', '$http', 'levelService', function 
                     let story = level.stories [j];
                     if (j > 0) {
                         $scope.positionForStory[story.id] = {
-                            left: (30 * j ) + 'px',
-                            top: (-j * 370 + (10 * j)) + 'px',
+                            left: (-7 * j ) + 'px',
+                            top: (-j * 362 + (10 * j)) + 'px',
                             float: 'none'
                         };
                     } else {

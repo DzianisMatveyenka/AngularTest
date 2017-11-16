@@ -1,3 +1,7 @@
+.pageBackground {
+    background: #fafafa;
+}
+
 .level {
     border: 1px solid #303aff;
     min-height: 500px;
@@ -16,18 +20,77 @@
 .stories {
     float: left;
     border: 1px solid #ffb852;
-    max-height: 500px;
+    max-height: 600px;
 }
 
 .story {
-    background: #C0C0C0;
-    width: 260px;
-    height: 380px;
-    padding: 5px;
+    background: #fafafa;
+    width: 555px;
+    height: 331px;
     margin: 2px;
-    border: 2px solid #778899;
     position: relative;
     float: left;
+    border-radius: 12px;
+    box-shadow: 0px 0 30px -2px rgb(113, 120, 126);
+}
+
+@font-face {
+    font-family: Lato-Regular;
+    src: url(../Fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Merriweather-Light;
+    src: url(../Fonts/Merriweather-Light.ttf);
+}
+
+.storyHeaderBorder {
+    background: #fafafa;
+    border-bottom: 2px solid #f5f5f5;
+    border-radius: 12px 12px 0 0;
+}
+
+.storyHeader {
+    font-family: "Lato-Regular";
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0px;
+    padding: 20px 19px;
+    width: 473px;
+}
+
+.inlineElement {
+    display: inline-block;
+}
+
+.storyDots {
+    font-family: "Lato-Regular";
+    font-size: 20px;
+    color: #71787e;
+    font-weight: 600;
+    padding: 0 19px 0 5px;
+    text-decoration: none;
+}
+
+.storyContentBorder {
+    background: #fafafa;
+    border-bottom: 2px solid #f5f5f5;
+    padding: 30px 19px;
+    height: 128px;
+}
+
+.storyContent {
+    font-family: "Merriweather-Light";
+    font-size: 16px;
+    line-height: 30px;
+    color: #71787e;
+}
+
+.storyFooter {
+    height: 59px;
+    background: #fafafa;
+    border-radius: 0 0 12px 12px;
+    padding: 2px 19px;
 }
 
 .storyButtons {
@@ -39,46 +102,74 @@
     position: relative;
 }
 
+.storyButtonPadding {
+    padding: 9px 0;
+}
+
 .storyButton {
-    margin: 3px;
+    width: 473px;
 }
 
-.storyButtonInput {
-    color: #fff;
-    padding: 2px 7px;
-    background-color: #6496c8;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
+.storyButtonInputNext {
+    width: 40px;
+    height: 40px;
+    outline: none;
+    padding: 7px 15px;
+    background-color: #ffffff;
+    border: 2px solid #00aeef;
+    border-radius: 20px;
     transition: all 0.3s ease-out;
-    box-shadow: inset 0 3px 2px rgba(255, 255, 255, .22),
-    inset 0 -3px 2px rgba(0, 0, 0, .17),
-    inset 0 20px 10px rgba(255, 255, 255, .12),
-    0 0 4px 1px rgba(0, 0, 0, .1),
-    0 3px 2px rgba(0, 0, 0, .2);
 }
 
-.storyButtonInput:hover {
-    background-color: #417cb8;
+.storyButtonNextLeft {
+    background-image: url(../image/arrowLeft.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.storyButtonNextLeft:hover {
+    background-color: #f5f5f5;
+    background-image: url(../image/arrowLeftHover.png);
+    border: 2px solid #009ad4;
+}
+
+.storyButtonNextRight {
+    background-image: url(../image/arrowRight.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.storyButtonNextRight:hover {
+    background-color: #f5f5f5;
+    background-image: url(../image/arrowRightHover.png);
+    border: 2px solid #009ad4;
+}
+
+
+.storyButtonPlus {
+    width: 30px;
+    height: 30px;
+    outline: none;
+    padding: 0px;
+    background-color: #00aeef;
+    color: #ffffff;
+    border: 0 solid;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 150%;
+}
+
+.storyButtonPlus:hover {
+    background-color: #009ad4;
 }
 
 .storyButtonInputPressed {
-    background-color: #33337c;
+    background-color: #4f4ff7;
     box-shadow: inset 0 -2px 1px rgba(255, 255, 255, 0.2),
     inset 0 3px 2px rgba(0, 0, 0, 0.12);
-}
-
-.shadow {
-    box-shadow: 5px 0 2px -2px rgba(119, 136, 153, 1);
-}
-
-.rounded {
-    border-radius: 20px;
-}
-
-.roundedPhoto {
-    border-radius: 110px;
-    float: left;
-    width: 80px;
 }
 
 /*Begin of popup*/
